@@ -1,0 +1,40 @@
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #16161a;
+  color: #fafafa;
+  font-weight: 600;
+
+  div {
+    margin: 0 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 767px) {
+  .toolbar {
+    div {
+      margin: 0 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .toolbar {
+    div {
+      margin: 0 0.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+  }
+}

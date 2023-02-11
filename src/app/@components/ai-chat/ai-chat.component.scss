@@ -1,0 +1,130 @@
+#content {
+  min-height: 80vh;
+
+  .content {
+    margin: 5rem auto 0 1rem;
+    height: 70vh;
+    overflow: auto;
+
+    .chat {
+      margin-bottom: 1.5rem;
+
+      .header {
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        color: #9e93be;
+      }
+
+      .header2 {
+        font-size: 0.9rem;
+        font-weight: 700;
+        margin-bottom: 0.3rem;
+        color: #84c0a7;
+      }
+
+      .card-container {
+        .card {
+          border-radius: 4px;
+          border: none;
+          background-color: #9e93be;
+          color: #fafafa;
+          width: fit-content;
+          max-width: 50%;
+          padding: 0.625rem;
+          text-align: left;
+        }
+
+        .card2 {
+          border-radius: 4px;
+          border: none;
+          background-color: #84c0a7;
+          color: #fafafa;
+          width: fit-content;
+          max-width: 5rem;
+          padding: 0.625rem;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  .input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .container {
+      width: 70%;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      .input {
+        width: 90%;
+        height: 1.5rem;
+        border-radius: 0.25rem;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        background-color: #e0e0e0;
+      }
+      
+      button {
+        height: 2rem;
+        min-width: fit-content;
+        width: 10%;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.25rem;
+        border: none;
+        cursor: pointer;
+        transition-duration: 0.4s;
+        background-color: #16161a;
+        color: #fafafa;
+        border: 0.063rem solid #e0e0e0;
+
+        &:hover {
+          transform: translateY(-0.125rem);
+        }
+      }
+    }
+  }
+}
+
+#clouds {
+  svg#clouds {
+    position: fixed;
+    bottom: -160px;
+    left: -230px;
+    z-index: -10;
+    width: 1920px;
+  }
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+  #content {
+    .input-container {
+  
+      .container {
+        width: 90%;
+        .input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 575px) {
+  #content {
+    .input-container {
+  
+      .container {
+        width: 95%;
+        .input {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

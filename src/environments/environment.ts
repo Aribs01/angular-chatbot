@@ -4,8 +4,6 @@
 
 export const environment = {
   production: false,
-  // brainShopUrl: 'http://api.brainshop.ai/get?bid=[bid]&key=[key]&uid=[uid]&msg=[msg]',
-  // brainShopUrl: 'http://api.brainshop.ai/get?bid=172649&key=kle9nV6pmatA0MBP&uid=[uid]&msg=[msg]',
   brainShopUrl: 'https://api.brainshop.ai/get?bid=172649&key=kle9nV6pmatA0MBP&',
 };
 

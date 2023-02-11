@@ -67,7 +67,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
       setTimeout(() => {
         response = {
           member: Member.chatbot,
-          chat: this.inputText + ' ?',
+          chat: '. . . .',
         }
         this.chat.push(response)
         this.inputText = '';

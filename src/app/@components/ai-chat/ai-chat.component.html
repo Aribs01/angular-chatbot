@@ -10,7 +10,10 @@
     </div>
 
     <div class="chat" *ngFor="let item of chat; let i = index">
-      <div class="header">
+      <div [ngClass]="{
+        'header': item.member === 0,
+        'header2': item.member === 1
+      }">
         <ng-container *ngIf="item.member === 0">
             Chatbot
         </ng-container>

@@ -7,13 +7,17 @@ import { Subscription } from 'rxjs';
 
 export interface User {
   name: string;
-  message: string[];
 }
 
 export interface Response {
   id?: number;
-  member: 'chatbot' | 'user';
-  chat: '';
+  member: Member;
+  chat: string;
+}
+
+export enum Member {
+  chatbot,
+  user
 }
 
 @Component({
@@ -24,15 +28,51 @@ export interface Response {
 export class AiChatComponent implements OnInit, OnDestroy {
   user: User = {
     name: '',
-    message: [],
   };
   chat: Response[] = [];
   getChatSub!: Subscription;
+  inputText: string = '';
+  another: boolean = true;
 
   constructor(private store: Store<fromApp.AppState>) {}
 
   ngOnInit(): void {
-    this.getResponse()
+    // this.getResponse()
+  }
+
+  botReply() {
+    if (this.inputText && this.another === true) {
+      this.another = false
+      this.user.name = this.inputText
+      let response = {
+        member: Member.user,
+        chat: this.inputText,
+      }
+      this.chat.push(response)
+      setTimeout(() => {
+        response = {
+          member: Member.chatbot,
+          chat: 'Hi ' + this.inputText + ' Nice to meet you',
+        }
+        this.chat.push(response)
+        this.inputText = '';
+      }, 1000);
+    }
+    else {
+      let response = {
+        member: Member.user,
+        chat: this.inputText,
+      }
+      this.chat.push(response)
+      setTimeout(() => {
+        response = {
+          member: Member.chatbot,
+          chat: this.inputText + ' ?',
+        }
+        this.chat.push(response)
+        this.inputText = '';
+      }, 1000);
+    }
   }
 
   getResponse() {
@@ -46,7 +86,7 @@ export class AiChatComponent implements OnInit, OnDestroy {
       .pipe(select(ChatSelector.getChat))
       .subscribe((resData: any) => {
         if (resData) {
-          console.log(resData);
+          // console.log(resData);
         }
       });
   }

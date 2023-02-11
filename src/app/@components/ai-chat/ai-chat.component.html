@@ -10,15 +10,23 @@
     </div>
 
     <div class="chat" *ngFor="let item of chat; let i = index">
-      <div class="header">{{ item.member || "User" }}</div>
+      <div class="header">
+        <ng-container *ngIf="item.member === 0">
+            Chatbot
+        </ng-container>
+        <ng-container *ngIf="item.member === 1">
+            {{ user.name || 'User' }}
+        </ng-container>
+      </div>
       <div class="card-container">
+        <!-- {{item.member}} -->
         <div
           [ngClass]="{
-            'card': item.member === 'chatbot',
-            'card2': item.member === 'user'
+            'card': item.member === 0,
+            'card2': item.member === 1
           }"
         >
-          <span>AI Chat Bot</span>
+          <span>{{ item.chat }}</span>
         </div>
       </div>
     </div>
@@ -26,8 +34,8 @@
 
   <div class="input-container">
     <div class="container">
-      <input class="input" placeholder="Enter Your Response ...." type="text" />
-      <button>Send</button>
+      <input class="input" [(ngModel)]="inputText" placeholder="Enter Your Response ...." type="text" />
+      <button (click)="botReply()">Send</button>
     </div>
   </div>
 
